@@ -1,0 +1,2014 @@
+{
+    "collection": {
+        "info": {
+            "_postman_id": "36e308af-334d-4379-af2b-faab7033c444",
+            "name": "Admin-Utils",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "updatedAt": "2023-07-27T09:37:55.000Z",
+            "uid": "13087860-36e308af-334d-4379-af2b-faab7033c444"
+        },
+        "item": [
+            {
+                "name": "Assessment-content-bulk",
+                "item": [
+                    {
+                        "name": "Assessment-content-bulk-Submit",
+                        "id": "8c63ed67-f01c-4189-b133-36ece11ab5b8",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"contents\": [\n        {\n            \"contentId\": \"73566133-3933-4759-8536-8b52dc35a6fc\",\n            \"format\": \"assessment\",\n            \"update_type\": \"edit\",\n            \"payload\": [\n                {\n                    \"key\": \"editorial_tags\",\n                    \"value\": \"3\",\n                    \"metaReferenceId\": \"\"\n                }\n            ],\n            \"references\": [],\n            \"creater_id\": \"94a93683-916a-4299-a6d3-facb81b92786\"\n        }\n    ]\n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/assessment-content/bulk",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "assessment-content",
+                                    "bulk"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-8c63ed67-f01c-4189-b133-36ece11ab5b8"
+                    },
+                    {
+                        "name": "Assessment- GET-API based on status and format",
+                        "id": "01a8e38b-f1f7-40e3-b6a0-30ce4a27bf61",
+                        "protocolProfileBehavior": {
+                            "disabledSystemHeaders": {
+                                "accept": true
+                            },
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json, text/plain, */*",
+                                    "type": "text"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/assessment-content/bulk?status=update-inprogress&format=assessment",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "assessment-content",
+                                    "bulk"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "status",
+                                        "value": "update-inprogress"
+                                    },
+                                    {
+                                        "key": "userId",
+                                        "value": "d43dc25c-04b5-410f-9f3e-f983d4ffa6b7",
+                                        "disabled": true
+                                    },
+                                    {
+                                        "key": "format",
+                                        "value": "assessment"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-01a8e38b-f1f7-40e3-b6a0-30ce4a27bf61"
+                    },
+                    {
+                        "name": "Fetch collections Details referred  by the assessment",
+                        "id": "b3ec9dc4-59b9-4616-9577-0b77796ac02d",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json, text/plain, */*"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n   \"assessmentIds\": [\"ca8680d1-a55b-4564-8637-042625785195\"],\n   \"format\": \"assessment\"\n}\n",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/assessment-content/assessment/references",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "assessment-content",
+                                    "assessment",
+                                    "references"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-b3ec9dc4-59b9-4616-9577-0b77796ac02d"
+                    },
+                    {
+                        "name": "Review-content-Approve-API",
+                        "id": "b6995551-4c6c-4b51-a3a9-1edffc1ee9c6",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PATCH",
+                            "header": [
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json, text/plain, */*"
+                                },
+                                {
+                                    "key": "Accept-Language",
+                                    "value": "en-GB,en;q=0.9,ta-IN;q=0.8,ta;q=0.7,en-US;q=0.6"
+                                },
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "DNT",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "Origin",
+                                    "value": "http://localhost:8080"
+                                },
+                                {
+                                    "key": "Referer",
+                                    "value": "http://localhost:8080/"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Dest",
+                                    "value": "empty"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Mode",
+                                    "value": "cors"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Site",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "User-Agent",
+                                    "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+                                },
+                                {
+                                    "key": "sec-ch-ua",
+                                    "value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+                                },
+                                {
+                                    "key": "sec-ch-ua-mobile",
+                                    "value": "?0"
+                                },
+                                {
+                                    "key": "sec-ch-ua-platform",
+                                    "value": "\"Linux\""
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "\n{\n  \"review_content\": [{\n      \"cb_id\": 78,\n      \"metadata\": [{\n          \"cbmd_id\": 75,\n          \"status\": \"approved\"\n        },\n        {\n          \"cbmd_id\": 76,\n          \"status\": \"rejected\"\n        }]\n    },\n    {\n      \"cb_id\": 79,\n      \"metadata\": [{\n          \"cbmd_id\": 77,\n          \"status\": \"approved\"\n        },\n        {\n          \"cbmd_id\": 78,\n          \"status\": \"approved\"\n        }]\n    }]\n}\n"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/bulk/review-content",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "bulk",
+                                    "review-content"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-b6995551-4c6c-4b51-a3a9-1edffc1ee9c6"
+                    }
+                ],
+                "id": "0db4188b-c1da-4c83-92ed-3214cf47feb9",
+                "uid": "13087860-0db4188b-c1da-4c83-92ed-3214cf47feb9"
+            },
+            {
+                "name": "Course-Class",
+                "item": [
+                    {
+                        "name": "Get-course-by-courseId",
+                        "id": "b57c56dc-98bc-4f44-8538-c3e828039b7b",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{prodb}}/api/v1/admin-utils/course?_=538313b0-7a2b-4415-b08d-660449729a51%2C44281d90-8e60-4d36-9aee-84e1f52345aa",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "course"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "_",
+                                        "value": "538313b0-7a2b-4415-b08d-660449729a51%2C44281d90-8e60-4d36-9aee-84e1f52345aa"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-b57c56dc-98bc-4f44-8538-c3e828039b7b"
+                    },
+                    {
+                        "name": "Get_classes_by_teacherId",
+                        "id": "cd2429c5-18bd-48e9-94f4-93f89bc288cb",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/classes/e91265a1-59aa-4d38-9d61-32e230264b8e/teacher?is_archived=false",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "classes",
+                                    "e91265a1-59aa-4d38-9d61-32e230264b8e",
+                                    "teacher"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "is_archived",
+                                        "value": "false"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-cd2429c5-18bd-48e9-94f4-93f89bc288cb"
+                    },
+                    {
+                        "name": "Add_Instructional_Coaches",
+                        "id": "d7e74bec-ec7b-498a-8282-9f6fa1b153d0",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"instructional_coach_id\": \"70780bc3-1af4-4b07-a947-609053a49d85\",\n    \"teacher_id\": \"d43dc25c-04b5-410f-9f3e-f983d4ffa6b7\",\n    \"class_id\": [\n        \"7dfeeb2e-3786-44be-b14f-984dd13db25a\",\n        \"af15ae35-d680-4cbc-bc20-837a77be0d7f\"\n    ]\n}"
+                            },
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/instructional-coaches",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "instructional-coaches"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-d7e74bec-ec7b-498a-8282-9f6fa1b153d0"
+                    },
+                    {
+                        "name": "Update_Classes_Archive",
+                        "id": "ed982a0c-e91a-4962-8b2a-050ddfa5105c",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"class_ids\": [\n        \"7dfeeb2e-3786-44be-b14f-984dd13db25a\",\n        \"c1b375e3-c99e-435a-929c-bd5dc7758afb\"\n    ],\n    \"is_archived\": true\n}"
+                            },
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/classes/archive",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "classes",
+                                    "archive"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-ed982a0c-e91a-4962-8b2a-050ddfa5105c"
+                    },
+                    {
+                        "name": "Update_Classess_By_Id",
+                        "id": "f0e34ace-3e8c-4362-b03f-1019da3b6922",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/classes/2b0a601b-ebb0-4497-b9b7-e22fe624ee5f?group_id=1234",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "classes",
+                                    "2b0a601b-ebb0-4497-b9b7-e22fe624ee5f"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "group_id",
+                                        "value": "1234"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-f0e34ace-3e8c-4362-b03f-1019da3b6922"
+                    }
+                ],
+                "id": "0983f36b-241d-4a03-a1f6-5ff9c9187937",
+                "uid": "13087860-0983f36b-241d-4a03-a1f6-5ff9c9187937"
+            },
+            {
+                "name": "Tenant-setting-config",
+                "item": [
+                    {
+                        "name": "Create_tenant_Setting_Config",
+                        "id": "592a5c01-0090-4491-b95d-6f184d912431",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"setting_key\": \"group_hierarchy_3\",\n    \"display_name\": \"Select the Group Hierarchy\",\n    \"description\": \"Show the Library Catalog  \",\n    \"group_name\": \"White Labeling_2\",\n    \"subgroup_name\": \"Set the default landing page for reports in Student Locator\", \n    \"update_warning_message\": \"Set the default landing page for reports in Student Locator\",\n    \"access_mode\": \"edit\",\n    \"default_value\": \"false\",\n    \"is_global\": false,\n    \"ui_element_type\": \"input-text\",  \n    \"sequence_id\": 7,\n    \"setting_visibility\": \"public\"\n}"
+                            },
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/tenant-setting-config",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant-setting-config"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-592a5c01-0090-4491-b95d-6f184d912431"
+                    },
+                    {
+                        "name": "Update_Tenant-Setting-Config",
+                        "id": "a5fc019f-e486-4dde-8638-de9417cb2ba6",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"setting_key\": \"group_hierarchy_3\",\n    \"display_name\": \"Select the Group Hierarchy\",\n    \"description\": \"Show the Library Catalog  \",\n    \"group_name\": \"White Labelings\",\n    \"subgroup_name\": \"Set the default landing page for reports in Student Locators\", \n    \"update_warning_message\": \"Set the default landing page for reports in Student Locators\",\n    \"access_mode\": \"edit\",\n    \"default_value\": \"false\",\n    \"is_global\": false,\n    \"ui_element_type\": \"input-text\",  \n    \"sequence_id\": 7,\n    \"setting_visibility\": \"public\"\n}"
+                            },
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/tenant-setting-config/group_hierarchy_3",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant-setting-config",
+                                    "group_hierarchy_3"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-a5fc019f-e486-4dde-8638-de9417cb2ba6"
+                    },
+                    {
+                        "name": "Delete_Tenant-Setting-Config",
+                        "id": "702271fa-4e65-467a-93a4-c6033c6d6431",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "DELETE",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/tenant-setting-config/group_hierarchy_3",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant-setting-config",
+                                    "group_hierarchy_3"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-702271fa-4e65-467a-93a4-c6033c6d6431"
+                    },
+                    {
+                        "name": "Unique_Group_Name_Tenant_Setting_Config",
+                        "id": "4fd33d63-276a-407e-b0cf-0692dd1c5fcb",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/tenant-setting-config/group-name",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant-setting-config",
+                                    "group-name"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-4fd33d63-276a-407e-b0cf-0692dd1c5fcb"
+                    },
+                    {
+                        "name": "Unique_Sub_Group_Name_By_Tenant_Setting_Config",
+                        "id": "404e797a-ca31-440b-95cf-aa0ec288367b",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/tenant-setting-config/sub-group-name/Class Settings",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant-setting-config",
+                                    "sub-group-name",
+                                    "Class Settings"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-404e797a-ca31-440b-95cf-aa0ec288367b"
+                    }
+                ],
+                "id": "c2de216e-ec88-48d0-8a4a-36e79b1c820f",
+                "uid": "13087860-c2de216e-ec88-48d0-8a4a-36e79b1c820f"
+            },
+            {
+                "name": "OAuth_Client",
+                "item": [
+                    {
+                        "name": "Create_OAuth_Client",
+                        "id": "4a3a903e-2394-4de1-848d-0ced5b47d4f6",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"tenant_id\":\"ba956a97-ae15-11e5-a302-f8a963065976\",\n    \"partner_id\":\"\"\n}"
+                            },
+                            "url": {
+                                "raw": "https://stage.gooru.org/api/v1/admin-utils/oauth-clients",
+                                "protocol": "https",
+                                "host": [
+                                    "stage",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "oauth-clients"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-4a3a903e-2394-4de1-848d-0ced5b47d4f6"
+                    },
+                    {
+                        "name": "Get_OAuth-Client",
+                        "id": "9f323b98-6182-4943-8bfe-5880115263d7",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "https://prodb.gooru.org/api/v1/admin-utils/oauth-clients",
+                                "protocol": "https",
+                                "host": [
+                                    "prodb",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "oauth-clients"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-9f323b98-6182-4943-8bfe-5880115263d7"
+                    },
+                    {
+                        "name": "Update_Oauth-Client",
+                        "id": "2362c20c-3569-4adf-845f-8784201adcaf",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n     \"client_id\": \"e2ceed71-961c-4577-ac12-df6254169e77\",\n    \"client_secret\": \"dofQKvELOPwOzdcR3xxDuxatKP1ZOKst\",\n    \"tenant_id\": \"370a7ee3-d610-46f4-8f3c-7475560aedc7\",\n    \"partner_id\": 42,\n    \"grant_types\": [\n        \"client_credentials\",\n        \"refresh_token\"\n    ],\n    \"scopes\": [],\n    \"id\": 12\n  \n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/oauth-clients",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "oauth-clients"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-2362c20c-3569-4adf-845f-8784201adcaf"
+                    },
+                    {
+                        "name": "Delete_OAuth-Clients_ById",
+                        "id": "8b01e046-b4a9-49dc-b07c-e48af6503f7e",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "DELETE",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/oauth-clients/1f647106-a3bc-47ab-a942-ac3dbf263c9f",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "oauth-clients",
+                                    "1f647106-a3bc-47ab-a942-ac3dbf263c9f"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-8b01e046-b4a9-49dc-b07c-e48af6503f7e"
+                    }
+                ],
+                "id": "3df2ff1c-f986-421c-ad21-2fd801b10da5",
+                "uid": "13087860-3df2ff1c-f986-421c-ad21-2fd801b10da5"
+            },
+            {
+                "name": "Group_hierarchy",
+                "item": [
+                    {
+                        "name": "Get_Group_Hierarchy",
+                        "id": "3c29f58c-7c89-4bf5-bda3-408eced04ff8",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/group-hierarchy/10",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "group-hierarchy",
+                                    "10"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-3c29f58c-7c89-4bf5-bda3-408eced04ff8"
+                    }
+                ],
+                "id": "3ee2384b-fc57-40b6-bdcb-15a679339c59",
+                "uid": "13087860-3ee2384b-fc57-40b6-bdcb-15a679339c59"
+            },
+            {
+                "name": "Tenant",
+                "item": [
+                    {
+                        "name": "Create_Tenant",
+                        "id": "b47c837e-c28a-4d3c-95be-01883bb77921",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"tenant_name\":\"\",\n    \"tenant_short_name\":\"\",\n    \"tenant_logo\":\"\",\n    \"tenant_parent_id\":\"\",\n    \"it_contact_name\":\"\",\n    \"it_contact_email\":\"\",\n    \"it_contact_no\":\"\",\n    \"subject_classifications\":\"\",\n    \"location\":{\n        \"country\":3,\n        \"state\":4\n    },\n    \"group_hierarchy\": {\n        \"hiearchy_id\": 4,\n        \"custom_hierarchy\": {\n            \"country\":\"india\",\n            \"state\":\"tamilnadu\",\n            \"school_district\":\"\",\n            \"district\":\"\",\n            \"block\":\"\",\n            \"cluster\":\"\",\n            \"school\":\"\"\n        }\n    }\n\n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/tenant",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-b47c837e-c28a-4d3c-95be-01883bb77921"
+                    },
+                    {
+                        "name": "Get_Tenant_stats",
+                        "id": "90f9b349-ae80-417b-92cc-1daabf4417e7",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/tenant/stats?offset=51&limit=5",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant",
+                                    "stats"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "offset",
+                                        "value": "51"
+                                    },
+                                    {
+                                        "key": "limit",
+                                        "value": "5"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-90f9b349-ae80-417b-92cc-1daabf4417e7"
+                    },
+                    {
+                        "name": "Get_Tenant_ByTenantId",
+                        "id": "7ed05dc8-713c-49de-b3e8-3a5d944c4a6c",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "https://admin.stage.gooru.org/api/v1/admin-utils/tenant-id?id=84536983-128d-4116-b3f8-e22a91904af1",
+                                "protocol": "https",
+                                "host": [
+                                    "admin",
+                                    "stage",
+                                    "gooru",
+                                    "org"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant-id"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "id",
+                                        "value": "84536983-128d-4116-b3f8-e22a91904af1"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-7ed05dc8-713c-49de-b3e8-3a5d944c4a6c"
+                    },
+                    {
+                        "name": "Tenant_Patch",
+                        "id": "a67522d4-72f9-4526-b8d2-7579deb3c2a9",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PATCH",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{prodb}}/api/v1/admin-utils/tenant/8e621886-8895-4347-87c2-f978cfee8cb8",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant",
+                                    "8e621886-8895-4347-87c2-f978cfee8cb8"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-a67522d4-72f9-4526-b8d2-7579deb3c2a9"
+                    },
+                    {
+                        "name": "Get_Tenant",
+                        "id": "2ff2095b-f679-44be-81d2-0c4ceb77fac0",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{prodb}}/api/v1/admin-utils/tenant/c0fe4118-2b4f-463a-8596-b680ab766656",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant",
+                                    "c0fe4118-2b4f-463a-8596-b680ab766656"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-2ff2095b-f679-44be-81d2-0c4ceb77fac0"
+                    },
+                    {
+                        "name": "Put_Tenant",
+                        "id": "b61f8f22-debb-49e1-a9f6-abad16865047",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"tenant_id\": \"c35276a0-af17-4f4d-a9be-01e872194830\",\n    \"roster_format\": {\n        \"format\": \"one_roster_1.0/one_roster_1.1/third_party_sync/custom_template\"\n    },\n    \"login_type\": \"google/credential/classlink/clever/saml/lti/wsfed\"\n}"
+                            },
+                            "url": {
+                                "raw": "http://localhost:3000/api/v1/admin-utils/tenant/c35276a0-af17-4f4d-a9be-01e872194830",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "3000",
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "tenant",
+                                    "c35276a0-af17-4f4d-a9be-01e872194830"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-b61f8f22-debb-49e1-a9f6-abad16865047"
+                    }
+                ],
+                "id": "611178cd-efa8-4467-ac57-bb5fb6fa257a",
+                "uid": "13087860-611178cd-efa8-4467-ac57-bb5fb6fa257a"
+            },
+            {
+                "name": "Health",
+                "item": [
+                    {
+                        "name": "Health",
+                        "id": "2bd24a14-8211-4e5d-9529-2bca3e72e872",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{prodb}}/api/internal/v1/admin-utils/health",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "internal",
+                                    "v1",
+                                    "admin-utils",
+                                    "health"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-2bd24a14-8211-4e5d-9529-2bca3e72e872"
+                    }
+                ],
+                "id": "9e6848f0-dbef-4b4a-9006-1441c539400f",
+                "uid": "13087860-9e6848f0-dbef-4b4a-9006-1441c539400f"
+            },
+            {
+                "name": "Users",
+                "item": [
+                    {
+                        "name": "Create_Users",
+                        "id": "27131107-dd57-4e05-9930-cdb7fcab62e0",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "[\n    {\n        \"username\": \"testgroup\",\n        \"email\": \"testgroup@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218485,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": true,\n        \"roster_global_userid\": \"200\"\n    },\n    {\n        \"username\": \"testgroup1\",\n        \"email\": \"testgroup1@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218486,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": false,\n        \"roster_global_userid\":  \"200\"\n    },\n    {\n        \"username\": \"testgroup2\",\n        \"email\": \"testgroup2@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218491,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": true,\n        \"roster_global_userid\": \"200\"\n    },\n    {\n        \"username\": \"testgroup3\",\n        \"email\": \"testgroup3@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218492,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": false,\n        \"roster_global_userid\":  \"200\"\n    },\n    {\n        \"username\": \"testgroup4\",\n        \"email\": \"testgroup4@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218493,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": true,\n        \"roster_global_userid\": \"200\"\n    },\n    {\n        \"username\": \"testgroup5\",\n        \"email\": \"testgroup5@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218494,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": false,\n        \"roster_global_userid\":  \"200\"\n    },\n    {\n        \"username\": \"testgroup6\",\n        \"email\": \"testgroup6@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218496,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": true,\n        \"roster_global_userid\": \"200\"\n    },\n    {\n        \"username\": \"testgroup7\",\n        \"email\": \"testgroup7@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218497,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": true\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": false,\n        \"roster_global_userid\":  \"200\"\n    },\n    {\n        \"username\": \"testgroup8\",\n        \"email\": \"testgroup8@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218499,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": false\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": true,\n        \"roster_global_userid\": \"200\"\n    },\n    {\n        \"username\": \"testgroup9\",\n        \"email\": \"testgroup9@gmail.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"1\",\n        \"password\": \"gems\",\n        \"user_category\": \"student\",\n        \"tenant_id\": \"ba956a97-ae15-11e5-a302-f8a963065976\",\n        \"is_deleted\": \"false\",\n        \"enable_force_password_change\": true,\n        \"group_school_id\": 218500,\n        \"display_name\": \"test\",\n        \"is_account_verified\": true,\n        \"info\": {\n            \"is_demo_account\": true\n        },\n        \"login_type\": \"server2server\",\n        \"is_email_verified\": false,\n        \"roster_global_userid\":  \"200\"\n    }\n]"
+                            },
+                            "url": {
+                                "raw": "{{prodb}}/api/v1/admin-utils/users",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "users"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-27131107-dd57-4e05-9930-cdb7fcab62e0"
+                    },
+                    {
+                        "name": "Get_User",
+                        "id": "c26adc41-0514-4b1b-a28a-5648dd3d8648",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{prodb}}/api/v1/admin-utils/users?school_group_id=218206",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "users"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "school_group_id",
+                                        "value": "218206"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-c26adc41-0514-4b1b-a28a-5648dd3d8648"
+                    },
+                    {
+                        "name": "Put_Update_Users",
+                        "id": "443c481d-e4cc-4291-8814-bedd8dabcfe1",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"user_category\": \"parent\",\n    \"user_id\":\"0829c579-e749-4070-a6ec-40f734b2a340\"\n    \n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/users",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "users"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-443c481d-e4cc-4291-8814-bedd8dabcfe1"
+                    },
+                    {
+                        "name": "Update_User_Data",
+                        "id": "45257cc8-311f-46c1-b47a-733d75b7bd23",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PATCH",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n\t\"user_id\" : \"664712dd-f5aa-476f-84d2-a061ae6fd905\",\n\t\"first_name\": \"Test_123\",\n\t\"last_name\": \"Student_123\",\n\t\"username\" : \"test102_student_1\",\n\t\"email\": \"test102_student_1@gooru.org\",\n\t\"user_category\": \"student\"\n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/users",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "users"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-45257cc8-311f-46c1-b47a-733d75b7bd23"
+                    },
+                    {
+                        "name": "Create_users_school",
+                        "id": "2a210f40-9c5e-40cf-8dec-7b41eaab5be1",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "[\n    {\n        \"name\": \"ABC Unified Elementary School\",\n        \"code\": \"LUSD-51\",\n        \"parent_id\": \"218485\"\n    },\n    {\n        \"name\": \"ABC Unified Virtual Learning Academy\",\n        \"code\": \"LUSD-LVLA\",\n        \"parent_id\": \"218486\"\n    },\n    {\n        \"name\": \"Altamont Elementary\",\n        \"code\": \"LUSD-54\",\n        \"parent_id\": \"218489\"\n    },\n    {\n        \"name\": \"Bethany Elementary\",\n        \"code\": \"LUSD-56\",\n        \"parent_id\": \"218491\"\n    }\n]"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/users/school",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "users",
+                                    "school"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-2a210f40-9c5e-40cf-8dec-7b41eaab5be1"
+                    },
+                    {
+                        "name": "Users-accounts",
+                        "id": "133089bb-7d21-46be-96a6-4f23ce33c4da",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"email\":\"divya+12@gooru.org\",\n    \"appId\":\"ad1988c9-756e-4809-b52e-5f2e9f2f20f6\"\n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/admin-utils/v2/users/accounts",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "admin-utils",
+                                    "v2",
+                                    "users",
+                                    "accounts"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-133089bb-7d21-46be-96a6-4f23ce33c4da"
+                    }
+                ],
+                "id": "9811dddd-675d-4d86-b5c9-8931586410bf",
+                "uid": "13087860-9811dddd-675d-4d86-b5c9-8931586410bf"
+            },
+            {
+                "name": "User_Reset_Password",
+                "item": [
+                    {
+                        "name": "User_Reset_Password",
+                        "id": "84054914-8ba8-4226-a983-5ed9f21f2b47",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PUT",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"user_id\": \"f1aecec1-90fb-4bba-bef9-0219a4d248af\",\n    \"password\": \"12345\"\n}"
+                            },
+                            "url": {
+                                "raw": "{{prodb}}/api/v1/admin-utils/reset-password",
+                                "host": [
+                                    "{{prodb}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "reset-password"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-84054914-8ba8-4226-a983-5ed9f21f2b47"
+                    }
+                ],
+                "id": "1ea1d142-7b36-489b-8215-3be27c6578b2",
+                "uid": "13087860-1ea1d142-7b36-489b-8215-3be27c6578b2"
+            },
+            {
+                "name": "Oneroster/Manual-sync",
+                "item": [
+                    {
+                        "name": "Oneroster_manual_sync",
+                        "id": "13a734d7-0a22-4d6e-a4c0-231b2627f950",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/oneroster/manual-sync",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "oneroster",
+                                    "manual-sync"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-13a734d7-0a22-4d6e-a4c0-231b2627f950"
+                    }
+                ],
+                "id": "de956ddb-3582-4b19-8abf-f70aaba6b433",
+                "uid": "13087860-de956ddb-3582-4b19-8abf-f70aaba6b433"
+            },
+            {
+                "name": "Flexible-groups",
+                "item": [
+                    {
+                        "name": "Flexible-groups",
+                        "id": "b3e8991c-1688-4b29-84e9-1f8621825a8e",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PATCH",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n\t\"id\" : \"332\",\n\t\"name\": \"Catamarca Test\",\n\t\"code\" : \"AR-K\",\n\t\"description\" : \"test description\",\n\t\"type\": \"state\",\n\t\"parent_id\": \"10\"\n}"
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/flexible-groups",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "flexible-groups"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-b3e8991c-1688-4b29-84e9-1f8621825a8e"
+                    }
+                ],
+                "id": "8973105a-c46b-4a47-ac8a-2b3e3b08ae3d",
+                "uid": "13087860-8973105a-c46b-4a47-ac8a-2b3e3b08ae3d"
+            },
+            {
+                "name": "Frameworks",
+                "item": [
+                    {
+                        "name": "Frameworks_API_SubjectCode",
+                        "id": "2651206e-38b8-459a-ac67-1540de071abe",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/frameworks/<subject_code>",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "frameworks",
+                                    "<subject_code>"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-2651206e-38b8-459a-ac67-1540de071abe"
+                    }
+                ],
+                "id": "c6df947d-4c0b-45bf-a0b3-716ac452528c",
+                "uid": "13087860-c6df947d-4c0b-45bf-a0b3-716ac452528c"
+            },
+            {
+                "name": "Learning-Registry",
+                "item": [
+                    {
+                        "name": "Learning-registry-content",
+                        "id": "df7b6f04-14be-4b99-a993-4fadd00a566e",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json, text/plain, */*"
+                                },
+                                {
+                                    "key": "Accept-Language",
+                                    "value": "en-GB,en;q=0.9"
+                                },
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token MjoxNjkwNDI5OTIxMTEwOmQ0M2RjMjVjLTA0YjUtNDEwZi05ZjNlLWY5ODNkNGZmYTZiNzo6YmE5NTZhOTctYWUxNS0xMWU1LWEzMDItZjhhOTYzMDY1OTc2"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Referer",
+                                    "value": "http://localhost:8080/partner-catalog/content-registry"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Dest",
+                                    "value": "empty"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Mode",
+                                    "value": "cors"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Site",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "User-Agent",
+                                    "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+                                },
+                                {
+                                    "key": "sec-ch-ua",
+                                    "value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+                                },
+                                {
+                                    "key": "sec-ch-ua-mobile",
+                                    "value": "?0"
+                                },
+                                {
+                                    "key": "sec-ch-ua-platform",
+                                    "value": "\"Linux\""
+                                }
+                            ],
+                            "url": {
+                                "raw": "http://localhost:3000/api/v1/admin-utils/learning-registry/content/registry/list?offset=0&limit=5&query=&category=k_12&subject=K12.MA&grades=2%2C4%2C5%2C6&audience=teacher",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "3000",
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "learning-registry",
+                                    "content",
+                                    "registry",
+                                    "list"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "offset",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "key": "limit",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "key": "query",
+                                        "value": ""
+                                    },
+                                    {
+                                        "key": "category",
+                                        "value": "k_12"
+                                    },
+                                    {
+                                        "key": "subject",
+                                        "value": "K12.MA"
+                                    },
+                                    {
+                                        "key": "grades",
+                                        "value": "2%2C4%2C5%2C6"
+                                    },
+                                    {
+                                        "key": "audience",
+                                        "value": "teacher"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-df7b6f04-14be-4b99-a993-4fadd00a566e"
+                    },
+                    {
+                        "name": "Learning_Registry_Tool",
+                        "id": "1fe243b9-c591-4578-8cd0-a3692465cfa6",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Accept",
+                                    "value": "application/json, text/plain, */*"
+                                },
+                                {
+                                    "key": "Accept-Language",
+                                    "value": "en-GB,en;q=0.9"
+                                },
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token MjoxNjkwNDI5OTIxMTEwOmQ0M2RjMjVjLTA0YjUtNDEwZi05ZjNlLWY5ODNkNGZmYTZiNzo6YmE5NTZhOTctYWUxNS0xMWU1LWEzMDItZjhhOTYzMDY1OTc2"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Referer",
+                                    "value": "http://localhost:8080/partner-catalog/tool-registry"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Dest",
+                                    "value": "empty"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Mode",
+                                    "value": "cors"
+                                },
+                                {
+                                    "key": "Sec-Fetch-Site",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "User-Agent",
+                                    "value": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+                                },
+                                {
+                                    "key": "sec-ch-ua",
+                                    "value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+                                },
+                                {
+                                    "key": "sec-ch-ua-mobile",
+                                    "value": "?0"
+                                },
+                                {
+                                    "key": "sec-ch-ua-platform",
+                                    "value": "\"Linux\""
+                                }
+                            ],
+                            "url": {
+                                "raw": "http://localhost:3000/api/v1/admin-utils/learning-registry/tool/registry/list?offset=0&limit=10&subject=K12.MA",
+                                "protocol": "http",
+                                "host": [
+                                    "localhost"
+                                ],
+                                "port": "3000",
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "learning-registry",
+                                    "tool",
+                                    "registry",
+                                    "list"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "offset",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "key": "limit",
+                                        "value": "10"
+                                    },
+                                    {
+                                        "key": "subject",
+                                        "value": "K12.MA"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-1fe243b9-c591-4578-8cd0-a3692465cfa6"
+                    }
+                ],
+                "id": "68f0b7fa-4a62-4419-ae0a-bdb343790ce1",
+                "uid": "13087860-68f0b7fa-4a62-4419-ae0a-bdb343790ce1"
+            },
+            {
+                "name": "Content_Bulk",
+                "item": [
+                    {
+                        "name": "Create_bulk",
+                        "id": "a92694d8-cefd-4a01-a00b-643348887518",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n    \"contents\": [\n        {\n            \"contentId\": \"909162b4-5294-11e3-ad6e-12314000ae95\",\n            \"format\": \"resource\",\n            \"update_type\": \"edit\",\n            \"payload\": [\n                {\n                    \"key\": \"language\",\n                    \"value\": \"en\",\n                    \"metaReferenceId\": 1,\n                    \"is_flagged\": true,\n                    \"flagged_reason\": {\n                        \"reason\": \"\"\n                    }\n                },\n                {\n                    \"key\": \"country\",\n                    \"value\": \"india\",\n                    \"metaReferenceId\": 1\n                }\n            ],\n            \"references\": [\n                \"517b9fde-a031-40d0-8f16-36a275c8b5cb\"\n            ],\n            \"creater_id\": \"94a93683-916a-4299-a6d3-facb81b92786\"\n        }\n    ]\n}",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/bulk",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "bulk"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-a92694d8-cefd-4a01-a00b-643348887518"
+                    },
+                    {
+                        "name": "Fetch_bulk_edit_contents_by_status ",
+                        "id": "f37b6eb0-372e-48f9-a11f-ad139f051721",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/bulk?status=draft",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "bulk"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "status",
+                                        "value": "draft",
+                                        "type": "text"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-f37b6eb0-372e-48f9-a11f-ad139f051721"
+                    },
+                    {
+                        "name": "Content_Bulk_Review_Content",
+                        "id": "65442d7a-c5f3-4e56-9cd3-ad9cc9efc5b4",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "PATCH",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n  \"review_content\": [{\n      \"cb_id\": 78,\n      \"metadata\": [{\n          \"cbmd_id\": 75,\n          \"status\": \"approved\"\n        },\n        {\n          \"cbmd_id\": 76,\n          \"status\": \"rejected\"\n        }]\n    },\n    {\n      \"cb_id\": 79,\n      \"metadata\": [{\n          \"cbmd_id\": 77,\n          \"status\": \"approved\"\n        },\n        {\n          \"cbmd_id\": 78,\n          \"status\": \"approved\"\n        }]\n    }]\n}\n",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/bulk/review-content",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "bulk",
+                                    "review-content"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-65442d7a-c5f3-4e56-9cd3-ad9cc9efc5b4"
+                    },
+                    {
+                        "name": "Content_Resources_References",
+                        "id": "1b2f9d52-bf26-4613-86f6-f6d2d0f19d32",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n   \"resourceIds\": [\"e235141e-7a76-4725-bee4-79259e991df5\", \"48b90d3c-61bb-4c13-a6de-4578c383ca15\", \"063ac970-d583-481a-80f9-6e3a69b914d7\"]\n}\n",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/resources/references",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "resources",
+                                    "references"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-1b2f9d52-bf26-4613-86f6-f6d2d0f19d32"
+                    },
+                    {
+                        "name": "Fetch resource details referred by the resource",
+                        "id": "57b57440-c16a-47cb-84ff-cb29ce419832",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n   \"resourceIds\": [\"aee8cb53-8fd8-4ea6-9aa4-0419bcaf73bb\", \"3c5f81f6-fa6d-11e6-817b-9f104c0fcec0\", \"13bd61a2-8cdc-11e3-ad6e-12314000ae95\", \"5723efef-4815-4f8b-9fa8-448058602bb7\"]\n}\n",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/resources/details",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "resources",
+                                    "details"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-57b57440-c16a-47cb-84ff-cb29ce419832"
+                    },
+                    {
+                        "name": "Fetch flag reasons list by given filters",
+                        "id": "6077f8f1-1557-4142-bd2a-3602cb702eb2",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/content/lookups/flag-reasons?is_active=t&content_type&language_code=en",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "content",
+                                    "lookups",
+                                    "flag-reasons"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "is_active",
+                                        "value": "t"
+                                    },
+                                    {
+                                        "key": "content_type",
+                                        "value": null
+                                    },
+                                    {
+                                        "key": "language_code",
+                                        "value": "en"
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-6077f8f1-1557-4142-bd2a-3602cb702eb2"
+                    },
+                    {
+                        "name": "Search_Resource_details",
+                        "id": "86d99aeb-f46b-4bee-af4c-dccde30f80f6",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Authorization",
+                                    "value": "Token {{token}}",
+                                    "type": "text"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "{\n   \"resourceIds\": [\"aee8cb53-8fd8-4ea6-9aa4-0419bcaf73bb\", \"3c5f81f6-fa6d-11e6-817b-9f104c0fcec0\", \"13bd61a2-8cdc-11e3-ad6e-12314000ae95\", \"5723efef-4815-4f8b-9fa8-448058602bb7\"]\n}\n",
+                                "options": {
+                                    "raw": {
+                                        "language": "json"
+                                    }
+                                }
+                            },
+                            "url": {
+                                "raw": "{{Stage}}/api/v1/admin-utils/search/resources/details",
+                                "host": [
+                                    "{{Stage}}"
+                                ],
+                                "path": [
+                                    "api",
+                                    "v1",
+                                    "admin-utils",
+                                    "search",
+                                    "resources",
+                                    "details"
+                                ]
+                            }
+                        },
+                        "response": [],
+                        "uid": "13087860-86d99aeb-f46b-4bee-af4c-dccde30f80f6"
+                    }
+                ],
+                "id": "18be6311-7def-4d4f-8224-e2e2650481b7",
+                "uid": "13087860-18be6311-7def-4d4f-8224-e2e2650481b7"
+            }
+        ]
+    }
+}
